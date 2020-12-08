@@ -10,5 +10,5 @@
  
 >The file can be edited using ANY file editor.
 
->Experimental writing
+>Exper writing
 
