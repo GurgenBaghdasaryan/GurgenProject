@@ -12,3 +12,6 @@
 
 >Exper writing
 
+>Opening the DB.sql will open the MySQL workbench.
+
+>Select the last row then press the "lightning" icon to create the DB, Tables, and insert data into them
