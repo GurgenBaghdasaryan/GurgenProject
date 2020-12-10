@@ -6,15 +6,15 @@ CREATE TABLE IF NOT EXISTS Salary (
     salary DECIMAL(18, 4),
     PRIMARY KEY(id)
   );
-  
+
 CREATE TABLE IF NOT EXISTS Employee (
     id INT NOT NULL AUTO_INCREMENT,
     firstName VARCHAR(20),
     lastName VARCHAR(20),
     age INT,
-    CHECK (age>=0 AND age <= 200),
     salaryId INT NOT NULL,
     PRIMARY KEY(id),
+    CHECK (age>=0 AND age <= 200),
     FOREIGN KEY (salaryId) REFERENCES Salary(id)
 );
 
