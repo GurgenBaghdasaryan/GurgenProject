@@ -8,15 +8,15 @@ CREATE TABLE IF NOT EXISTS salary (
   );
 CREATE TABLE IF NOT EXISTS menu_set (
     id INT NOT NULL AUTO_INCREMENT,
-    set_name VARCHAR(100),
-    set_price DECIMAL(18, 4),
+    set_name VARCHAR(100) NOT NULL,
+    set_price DECIMAL(18, 4) NOT NULL,
     PRIMARY KEY(id)
 );
 CREATE TABLE IF NOT EXISTS customer (
     id INT NOT NULL AUTO_INCREMENT,
-    first_name VARCHAR(20),
-    last_name VARCHAR(20),
-    age INT,
+    first_name VARCHAR(20) NOT NULL,
+    last_name VARCHAR(20) NOT NULL,
+    age INT NOT NULL,
     salary_id INT NOT NULL,
     ordered_set_id INT NOT NULL,
     PRIMARY KEY(id),
@@ -30,7 +30,16 @@ INSERT INTO menu_set (set_name,set_price)
 VALUES ('Hamburger, Fryes, Cola',13.768);
 INSERT INTO customer (first_name, last_name, age, salary_id, ordered_set_id)
 VALUES ('Gurgen','Bahgdasaryan',17,1,1);
-SELECT customer.id, customer.first_name, salary.salary, menu_set.set_name, menu_set.set_price
-FROM customer
-INNER JOIN salary ON salary.id = customer.salary_id
-INNER JOIN menu_set ON customer.ordered_set_id = menu_set.id
+SELECT 
+    customer.id,
+    customer.first_name,
+    salary.job,
+    salary.salary,
+    menu_set.set_name,
+    menu_set.set_price
+FROM
+    customer
+        INNER JOIN
+    salary ON salary.id = customer.salary_id
+        INNER JOIN
+    menu_set ON customer.ordered_set_id = menu_set.id
